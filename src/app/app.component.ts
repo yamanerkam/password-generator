@@ -57,5 +57,9 @@ export class AppComponent {
      this.password = characters.join('');
 }
 
+copyThePassword(){
+  navigator.clipboard.writeText(this.password);
+}
+
   
 }
