@@ -1,0 +1,6 @@
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+<h1>Password Generator</h1>
+<span>{{password}}</span>
+<input type="number" [value]="digitsValue" [(ngModel)]="digitsValue">
+<button (click)="getRandomDigits(digitsValue)">Generate</button>
+</div>
