@@ -15,10 +15,18 @@ export class AppComponent {
   getRandomDigits(quantity: number){
       let result = '';
       for (let i = 0; i < quantity; i++) {
-          result += Math.floor(Math.random() * 10); // Generates a random digit (0-9)
+          result += Math.floor(Math.random() * 10);
       }
-      this.password = result;
+      this.password += result;
+  }
 
+  getRandomLetters(quantity:number){
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let result = '';
+    for (let i = 0; i < quantity; i++) {
+        result += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    this.password = result;
   }
 
   

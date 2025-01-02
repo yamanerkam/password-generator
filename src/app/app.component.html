@@ -2,5 +2,8 @@
 <h1>Password Generator</h1>
 <span>{{password}}</span>
 <input type="number" [value]="digitsValue" [(ngModel)]="digitsValue">
+
 <button (click)="getRandomDigits(digitsValue)">Generate</button>
+<button (click)="getRandomLetters(digitsValue)">Generate</button>
+
 </div>
