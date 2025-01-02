@@ -17,7 +17,7 @@ export class AppComponent {
       for (let i = 0; i < quantity; i++) {
           result += Math.floor(Math.random() * 10);
       }
-      this.password = result;
+      this.password += result;
   }
 
   getRandomLetters(quantity:number){
@@ -26,7 +26,7 @@ export class AppComponent {
     for (let i = 0; i < quantity; i++) {
         result += letters.charAt(Math.floor(Math.random() * letters.length));
     }
-    this.password = result;
+    this.password += result;
   }
 
    getRandomSymbols(quantity:number) {
@@ -35,8 +35,27 @@ export class AppComponent {
     for (let i = 0; i < quantity; i++) {
         result += symbols.charAt(Math.floor(Math.random() * symbols.length));
     }
-    this.password = result;
+    this.password += result;
   }
+
+  randomPassword(quantity:number){
+    this.password = ''
+    this.getRandomDigits(quantity);
+    this.getRandomLetters(quantity);
+    this.getRandomSymbols(quantity);
+    this.randomiseText(this.password)
+  }
+
+ randomiseText(text:string) {
+    const characters = text.split('');
+    
+    for (let i = characters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [characters[i], characters[j]] = [characters[j], characters[i]]; // Swap
+    }
+
+     this.password = characters.join('');
+}
 
   
 }

@@ -3,9 +3,7 @@
 <span>{{password}}</span>
 <input type="number" [value]="digitsValue" [(ngModel)]="digitsValue">
 
-<button (click)="getRandomDigits(digitsValue)">Generate</button>
-<button (click)="getRandomLetters(digitsValue)">Generate</button>
-<button (click)="getRandomSymbols(digitsValue)">Generate</button>
+<button (click)="randomPassword(digitsValue)">Generate</button>
 
 
 </div>
