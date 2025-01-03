@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { Slider } from 'primeng/slider';
-import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule,ButtonModule,Slider,ReactiveFormsModule,InputTextModule],
+  imports: [RouterOutlet,FormsModule,ButtonModule,Slider,ReactiveFormsModule,InputNumberModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
