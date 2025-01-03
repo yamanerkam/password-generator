@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
   formGroup!: FormGroup;
   title = 'password-generator';
   password : string = '';
@@ -25,7 +26,20 @@ export class AppComponent implements OnInit {
     })
   }
 
-   
+  lastLimitTriggered: 'min' | 'max' | null = null; // Track the last triggered limit
+
+  checkForLimits(value: number) {
+    if (value === 8 && this.lastLimitTriggered !== 'min') {
+      this.lastLimitTriggered = 'min';
+      this.randomPassword(value);
+    } else if (value === 100 && this.lastLimitTriggered !== 'max') {
+      this.lastLimitTriggered = 'max';
+      this.randomPassword(value);
+    } else if (value > 8 && value < 100) {
+      this.randomPassword(value);
+      this.lastLimitTriggered = null;
+    }
+  }
 
   getRandomDigits(quantity: number){
       let result = '';

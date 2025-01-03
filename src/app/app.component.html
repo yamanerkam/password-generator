@@ -1,14 +1,20 @@
 <div class="password-generator">
-  <h1>Password Generator</h1>
-  <input class="generated-password" style="height: fit-content;" [(ngModel)]="password" />
+  <div class="left-container">
+    <h1>Strong. Secure. Awesome. Try our random password generator.</h1>
+    <span>A powerful generator for powerful passwords to protect your online accounts.</span>
+  </div>
+
+  <div class="right-container">
+  <input [readOnly]="true" class="generated-password" style="height: fit-content;" [(ngModel)]="password" />
 
   <div class="slider-container">
     <p-slider
       [(ngModel)]="digitsValue"
-      [min]="0"
+      [min]="8"
       [max]="100"
       [style]="{ width: '200px' }"
-      (onChange)="randomPassword(digitsValue)"
+      (onChange)="checkForLimits(digitsValue)"
+
     ></p-slider>
     <p-input-number inputStyleClass="xx" (onChange)="randomPassword(digitsValue)" [(ngModel)]="digitsValue" type="number" [maxlength]="2" [min]="0" [max]="20"  />
   </div>
@@ -17,4 +23,5 @@
     <p-button (click)="randomPassword(digitsValue)">Generate</p-button>
     <p-button (click)="copyThePassword()">Copy</p-button>
   </div>
+</div>
 </div>
