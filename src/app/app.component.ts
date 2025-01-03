@@ -1,16 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { Slider } from 'primeng/slider';
+import { InputTextModule } from 'primeng/inputtext';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule],
+  imports: [RouterOutlet,FormsModule,ButtonModule,Slider,ReactiveFormsModule,InputTextModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  formGroup!: FormGroup;
   title = 'password-generator';
   password : string = '';
-  digitsValue : number = 0;
+  digitsValue!: number; 
+
+
+  ngOnInit() {
+    this.formGroup = new FormGroup({
+        value: new FormControl(20),
+    })
+  }
+
+   
 
   getRandomDigits(quantity: number){
       let result = '';

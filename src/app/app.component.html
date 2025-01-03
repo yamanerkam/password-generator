@@ -1,9 +1,21 @@
 <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
 <h1>Password Generator</h1>
-<span>{{password}}</span>
-<input type="number" [value]="digitsValue" [(ngModel)]="digitsValue">
+<span style="color: black;">{{password}}</span>
+<br>
+<br>
+<br>
 
-<button (click)="randomPassword(digitsValue)">Generate</button>
-<button (click)="copyThePassword()">Copy</button>
+<p-slider
+  [(ngModel)]="digitsValue"
+  [min]="0"
+  [max]="20"
+  [style]="{ width: '200px' }"
+  (onChange)="randomPassword(digitsValue)"
+></p-slider>
+<br>
+<input [(ngModel)]="digitsValue" type="number" [min]="0" [max]="20" pInputText />
+<br>
+<p-button (click)="randomPassword(digitsValue)">Generate</p-button>
+<p-button (click)="copyThePassword()">Copy</p-button>
 
 </div>
